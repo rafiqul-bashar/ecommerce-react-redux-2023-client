@@ -2,6 +2,8 @@
   "name": "client",
   "private": true,
   "version": "0.0.0",
+  "author": "Rafiqul Bashar",
+  "description": "This is a React Ecommerce frontend application with Redux Toolkit. All the apis are fetched from a json-server. This was made by Rafiqul Bashar , junior web developer , while practicing React and mastering frontend.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +12,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
+    "@tailwindcss/forms": "^0.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.8.0",
+    "react-loader-spinner": "^5.3.4",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0"
   },

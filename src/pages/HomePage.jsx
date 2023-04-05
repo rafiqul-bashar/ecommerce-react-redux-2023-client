@@ -1,10 +1,23 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Header } from "../components";
+import { HomeLandingSection, HomeShopFeatures } from "../components/home";
+import FeaturedSection from "../components/home/FeaturedSection";
+import Loading from "../components/ui/Loading";
 
+const CategoryPreview = lazy(() =>
+  import("../components/home/SingleCategoryCollection")
+);
+console.log("admin kintu homepage aise");
 export default function HomePage() {
   return (
     <div>
-      <Header /> <h2 className="text-green-500 text-3xl">Holla</h2>
+      <Header />
+      <HomeLandingSection />
+      <FeaturedSection />
+      <Suspense fallback={<Loading />}>
+        <CategoryPreview />
+      </Suspense>
+      <HomeShopFeatures />
     </div>
   );
 }
