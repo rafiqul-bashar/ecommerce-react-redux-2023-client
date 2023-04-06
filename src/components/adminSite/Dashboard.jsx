@@ -7,6 +7,9 @@ import EditProductPage from "./EditProductPage";
 import EmployeesPage from "./EmployeesPage";
 import OrdersPage from "./OrdersPage";
 import ProductList from "./ProductList";
+import AdminRoute from "./AdminRoute";
+import { LoginPage, NotFound } from "../../pages";
+import PublicRoute from "../PublicRoute";
 
 export default function Dashboard() {
   return (
@@ -15,12 +18,49 @@ export default function Dashboard() {
       <AdminNavbar />
       <div className="container">
         <Routes>
-          <Route path="/" element={<AdminHomePage />} />
+          <Route
+            path="/"
+            element={
+              <AdminRoute>
+                <AdminHomePage />
+              </AdminRoute>
+            }
+          />
           <Route path="/products" element={<ProductList />} />
           <Route path="/add-product" element={<AddProductPage />} />
-          <Route path="/edit-product" element={<EditProductPage />} />
-          <Route path="/orders" element={<OrdersPage />} />
-          <Route path="/manage-hr" element={<EmployeesPage />} />
+          <Route
+            path="/edit-product"
+            element={
+              <AdminRoute>
+                <EditProductPage />{" "}
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <AdminRoute>
+                <OrdersPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/manage-hr"
+            element={
+              <AdminRoute>
+                <EmployeesPage />{" "}
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <AdminFooter />

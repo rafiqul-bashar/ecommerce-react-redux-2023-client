@@ -5,14 +5,27 @@ import { BiEdit } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setProductToEdit } from "../../redux/features/product/productSlice";
+import {
+  useDeleteProductMutation,
+  useGetProductsQuery,
+} from "../../redux/features/product/productApi";
+import { Toaster, toast } from "react-hot-toast";
 
-export default function ProductItem({ product }) {
-  const { title, price, image, category } = product || {};
+export default function ProductItem({ product, refetch }) {
+  const { title, price, image, category, id } = product || {};
+  const [deleteProduct, { isSuccess, isError, isLoading }] =
+    useDeleteProductMutation();
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleEdit = () => {
     dispatch(setProductToEdit(product));
     navigate("/edit-product");
+  };
+  const handleDelete = () => {
+    deleteProduct(id);
+    toast.success("Product Deleted Successfully .");
+    refetch();
   };
   return (
     <li className="flex flex-col md:flex-row md:items-center py-1">
@@ -45,12 +58,16 @@ export default function ProductItem({ product }) {
           <BiEdit className="text-purple-500 group-hover:text-white" />{" "}
           <h5>Edit</h5>{" "}
         </button>
-        <button className="flex items-center space-x-1 border border-gray-800 px-3 group hover:bg-red-500 transition-all duration-150 hover:text-white rounded-sm hover:border-transparent">
+        <button
+          onClick={handleDelete}
+          className="flex items-center space-x-1 border border-gray-800 px-3 group hover:bg-red-500 transition-all duration-150 hover:text-white rounded-sm hover:border-transparent"
+        >
           {" "}
           <AiOutlineDelete className="text-red-500 group-hover:text-white" />{" "}
           <h5>Delete</h5>{" "}
         </button>
       </div>
+      <Toaster />
     </li>
   );
 }
