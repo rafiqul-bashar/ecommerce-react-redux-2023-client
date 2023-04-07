@@ -7,7 +7,6 @@ import Loading from "../components/ui/Loading";
 const CategoryPreview = lazy(() =>
   import("../components/home/SingleCategoryCollection")
 );
-console.log("admin kintu homepage aise");
 export default function HomePage() {
   return (
     <div>

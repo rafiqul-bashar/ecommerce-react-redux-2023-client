@@ -5,6 +5,7 @@ import authSlice from "./features/auth/authSlice";
 
 import filterSlice from "./features/filters/filterSlice";
 import productSlice from "./features/product/productSlice";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
@@ -16,4 +17,5 @@ const store = configureStore({
   middleware: (getDefaultMiddlewares) =>
     getDefaultMiddlewares().concat(apiSlice.middleware),
 });
+setupListeners(store.dispatch);
 export default store;

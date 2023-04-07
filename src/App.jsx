@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import {
   BrowseProductsPage,
   CheckOutPage,
@@ -18,9 +18,8 @@ import { AdminDashboard } from "./components/adminSite";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
-  let admin = user?.user?.admin;
-  // if(user?.user)
-  if (admin) {
+
+  if (user?.userData?.admin) {
     return <AdminDashboard />;
   } else {
     return (

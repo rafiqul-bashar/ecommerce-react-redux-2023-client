@@ -1,11 +1,9 @@
 import React from "react";
-const user = {
-  name: "Rafiqul Bashar",
-  img: "",
-  email: "demo@mail.com",
-  address: "22nd bts, Mjadee.",
-};
+import { useDispatch, useSelector } from "react-redux";
+import { userLoggedOut } from "../redux/features/auth/authSlice";
 export default function ProfilePage() {
+  const user = useSelector((state) => state.auth?.user?.userData);
+  const dispatch = useDispatch();
   return (
     <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 text-gray-800">
       <div className="max-w-xl mx-auto bg-slate-100 p-12 space-y-4">
@@ -23,12 +21,18 @@ export default function ProfilePage() {
           <h2 className="font-semibold text-base"> Email: {user?.email}</h2>
           <h2 className="font-semibold text-base"> Address: {user?.address}</h2>
         </div>
-        <div className="flex flex-col-reverse md:flex-row items-center justify-evenly gap-2">
+        <div className="flex flex-col md:flex-row items-center justify-evenly gap-2">
+          <button className="w-full py-1 border-2 border-slate-700 text-slate-700">
+            Edit Profile
+          </button>
           <button className="w-full py-1 bg-slate-700 text-white">
             Change Password
           </button>
-          <button className="w-full py-1 border-2 border-slate-700 text-slate-700">
-            Edit Profile
+          <button
+            onClick={() => dispatch(userLoggedOut())}
+            className="w-full py-1 border-2 border-slate-700 text-slate-700"
+          >
+            Log Out
           </button>
         </div>
       </div>

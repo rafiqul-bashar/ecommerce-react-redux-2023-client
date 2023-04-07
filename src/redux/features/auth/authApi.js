@@ -13,11 +13,11 @@ export const authApi = apiSlice.injectEndpoints({
         try {
           const result = await queryFulfilled;
 
-          localStorage.setItem(
+          sessionStorage.setItem(
             "auth",
             JSON.stringify({
               accessToken: result.data.accessToken,
-              user: result.data.user,
+              userData: result.data.user,
             })
           );
 
@@ -34,24 +34,21 @@ export const authApi = apiSlice.injectEndpoints({
       },
     }),
     login: builder.mutation({
-      query: (data) => (
-        console.log(data),
-        {
-          url: "/login",
-          method: "POST",
-          body: data,
-        }
-      ),
+      query: (data) => ({
+        url: "/login",
+        method: "POST",
+        body: data,
+      }),
 
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const result = await queryFulfilled;
 
-          localStorage.setItem(
+          sessionStorage.setItem(
             "auth",
             JSON.stringify({
               accessToken: result.data.accessToken,
-              user: result.data.user,
+              userData: result.data.user,
             })
           );
 

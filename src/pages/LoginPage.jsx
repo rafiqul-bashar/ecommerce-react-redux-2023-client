@@ -3,32 +3,38 @@ import { toast, Toaster } from "react-hot-toast";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../redux/features/auth/authApi";
+import ShowError from "../components/ui/ShowError";
 export default function LoginPage() {
   const [login, { data, isLoading, error: responseError }] = useLoginMutation();
-  const [email, setEmail] = React.useState("guest@mail.com");
+  const [demoLogin, setDemoLogin] = React.useState(false);
+  const [email, setEmail] = React.useState("customer@shop.com");
   const [password, setPassword] = React.useState("damasit");
   const [showPassword, setShowPassword] = React.useState(false);
-  const navigate = useNavigate();
+
   React.useEffect(() => {
     if (responseError?.data) {
       toast.error(responseError.data);
     }
     if (data?.accessToken && data?.user) {
       toast.success("Login Successful.");
-      setTimeout(() => {
-        navigate("/products");
-      }, "1000");
     }
   }, [data, responseError, redirect]);
 
+  React.useEffect(() => {
+    if (demoLogin) {
+      setEmail("admin@shop.com");
+      setPassword("adminShop");
+    }
+  }, [demoLogin]);
   const handleLogin = (e) => {
     e.preventDefault();
     let emailData = email.toLocaleLowerCase();
-    // console.log({ emailData, password });
     login({ email: emailData, password });
-    setEmail("guest@mail.com");
+    setEmail("customer@shop.com");
     setPassword("damasit");
   };
+  // console.log(responseError);
+  // if (responseError) return <ShowError />;
   return (
     <div>
       <div className="container md:max-w-3xl mx-auto md:p-24 py-16">
@@ -79,12 +85,25 @@ export default function LoginPage() {
           >
             Login
           </button>
+          <button
+            onClick={() => setDemoLogin(true)}
+            type="button"
+            className="font-semibold w-full border-2 border-slate-900 text-slate-900 py-2 "
+          >
+            Get Credentials
+          </button>
           <Link to="/register">
             New here?{" "}
             <span className="underline font-semibold">Register Now</span>
           </Link>
+          {responseError && (
+            <p className="text-center text-red-500">
+              Oops.. Something Went Wrong!
+            </p>
+          )}
         </form>
       </div>
+
       <Toaster />
     </div>
   );

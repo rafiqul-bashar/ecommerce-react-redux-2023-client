@@ -26,7 +26,7 @@ export default function LandingSection() {
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             <Link
               to="/products"
-              className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+              className="px-8 py-3 text-lg font-semibold rounded bg-violet-400 text-gray-900 transition-all duration-200 hover:scale-95 border-2  border-transparent hover:border-violet-400 hover:text-violet-500 hover:bg-transparent"
             >
               Buy Now
             </Link>

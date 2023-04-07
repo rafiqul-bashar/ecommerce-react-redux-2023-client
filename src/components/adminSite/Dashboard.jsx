@@ -4,11 +4,10 @@ import AddProductPage from "./AddProductPage";
 import AdminHomePage from "./AdminHomePage";
 import { AdminNavbar, AdminFooter, AdminHeader } from "./CommonComponents";
 import EditProductPage from "./EditProductPage";
-import EmployeesPage from "./EmployeesPage";
-import OrdersPage from "./OrdersPage";
+
 import ProductList from "./ProductList";
 import AdminRoute from "./AdminRoute";
-import { LoginPage, NotFound } from "../../pages";
+import { LoginPage, NotFound, ProfilePage } from "../../pages";
 import PublicRoute from "../PublicRoute";
 
 export default function Dashboard() {
@@ -37,18 +36,10 @@ export default function Dashboard() {
             }
           />
           <Route
-            path="/orders"
+            path="/profile"
             element={
               <AdminRoute>
-                <OrdersPage />
-              </AdminRoute>
-            }
-          />
-          <Route
-            path="/manage-hr"
-            element={
-              <AdminRoute>
-                <EmployeesPage />{" "}
+                <ProfilePage />
               </AdminRoute>
             }
           />

@@ -14,7 +14,7 @@ export default function BrowseProductsPage() {
     data: categories,
     isLoading: categoryLoading,
     isError: categoryError,
-  } = useGetProductsCategoryQuery();
+  } = useGetProductsCategoryQuery({ refetchOnMountOrArgChange: true });
   const {
     data: products,
     isLoading: productsLoading,

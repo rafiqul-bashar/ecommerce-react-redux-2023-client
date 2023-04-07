@@ -26,7 +26,7 @@ export default function RegisterPage() {
         navigate("/products");
       }, "2000");
     }
-  }, [data, responseError, redirect]);
+  }, [data, responseError, navigate]);
   // registerBtn
   const handleLogin = (e) => {
     e.preventDefault();
@@ -168,6 +168,11 @@ export default function RegisterPage() {
             Already Registered??{" "}
             <span className="underline font-semibold">Login Here</span>
           </Link>
+          {responseError && (
+            <p className="text-center text-red-500">
+              Oops.. Something Went Wrong!
+            </p>
+          )}
         </form>
         <Toaster position="top-center" />
       </div>

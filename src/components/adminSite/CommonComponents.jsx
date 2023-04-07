@@ -44,18 +44,12 @@ export function AdminNavbar() {
         </Link>
         <Link to="/products">
           <h6 className="text-sm md:text-xl transition-all duration-200  hover:scale-105 text-white hover:bg-slate-300  hover:text-gray-900 px-3 py-1 rounded-sm">
-            Products
+            Mange Products
           </h6>
         </Link>
-        {/* <Link to="/add-product">Add Product</Link> */}
-        <Link to="/manage-hr">
+        <Link to="/profile">
           <h6 className="text-sm md:text-xl transition-all duration-200  hover:scale-105 text-white hover:bg-slate-300  hover:text-gray-900 px-3 py-1 rounded-sm">
-            Employees
-          </h6>
-        </Link>
-        <Link to="/">
-          <h6 className="text-sm md:text-xl transition-all duration-200  hover:scale-105 text-white hover:bg-slate-300  hover:text-gray-900 px-3 py-1 rounded-sm">
-            Orders
+            Profile
           </h6>
         </Link>
       </div>

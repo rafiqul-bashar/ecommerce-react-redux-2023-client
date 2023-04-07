@@ -4,9 +4,9 @@ import { Navigate } from "react-router-dom";
 
 export default function PrivateRoute({ children }) {
   const { user } = useSelector((state) => state.auth);
-  if (user?.accessToken && user?.user) {
+  if (user?.accessToken && user?.userData) {
     return children;
   } else {
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
 }

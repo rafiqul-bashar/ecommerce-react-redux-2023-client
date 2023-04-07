@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user: JSON.parse(localStorage.getItem("auth"))
-    ? JSON.parse(localStorage.getItem("auth"))
+  user: JSON.parse(sessionStorage.getItem("auth"))
+    ? JSON.parse(sessionStorage.getItem("auth"))
     : {
         accessToken: undefined,
         userData: undefined,
@@ -20,7 +20,7 @@ const authSlice = createSlice({
     userLoggedOut: (state) => {
       state.user.accessToken = undefined;
       state.user.userData = undefined;
-      localStorage.clear();
+      sessionStorage.clear();
     },
   },
 });
