@@ -96,7 +96,7 @@ const cartSlice = createSlice({
           quantity: 0,
         }
       );
-      state.cartTotalAmount = total.toFixed(2);
+      state.cartTotalAmount = parseFloat(total.toFixed(2));
     },
   },
 });
