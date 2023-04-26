@@ -7,6 +7,6 @@ export default function PrivateRoute({ children }) {
   if (user?.accessToken && user?.userData) {
     return children;
   } else {
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   }
 }

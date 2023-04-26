@@ -34,7 +34,7 @@ export default function SingleCategoryCollection() {
                 <img
                   src={el?.image}
                   alt={el?.title}
-                  className="h-[350px] w-full object-contain transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                  className="h-[350px] w-full object-contain transition duration-500 group-hover:scale-105 sm:h-[250px]"
                 />
 
                 <div className="relative pt-3 bg-white">

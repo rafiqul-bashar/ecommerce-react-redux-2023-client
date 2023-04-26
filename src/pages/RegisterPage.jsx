@@ -151,7 +151,7 @@ export default function RegisterPage() {
                 id="agree"
                 name="agree"
                 type="checkbox"
-                className="h-4 w-4 text-emerald-600 focus:text-emerald-600border-gray-300 rounded"
+                className="h-4 w-4 text-primary focus:text-primaryborder-gray-300 rounded"
                 checked={agreed}
                 required
                 onChange={(e) => setAgreed(e.target.checked)}

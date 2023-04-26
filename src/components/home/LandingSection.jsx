@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function LandingSection() {
   return (
-    <section className="text-gray-200 bg-gray-800">
+    <section className="text-gray-600 bg-gray-100">
       <div className="container grid grid-cols-1 justify-center p-6 mx-auto sm:py-12 lg:py-32 md:grid-cols-3 ">
         <div className="flex items-center justify-center p-4 mt-8 lg:mt-0 h-72 sm:h-90 lg:h-96 xl:h-112 2xl:h-128  md:col-span-2">
           <img
@@ -16,7 +16,7 @@ export default function LandingSection() {
           <h1 className="text-5xl font-bold leading-none sm:text-5xl">
             Get Products Online With
             <br />
-            <span className="text-violet-400 text-5xl font-bold leading-none sm:text-6xl ">
+            <span className="text-primary text-5xl font-bold leading-none sm:text-6xl ">
               MartShop
             </span>
           </h1>
@@ -26,9 +26,9 @@ export default function LandingSection() {
           <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
             <Link
               to="/products"
-              className="px-8 py-3 text-lg font-semibold rounded bg-violet-400 text-gray-900 transition-all duration-200 hover:scale-95 border-2  border-transparent hover:border-violet-400 hover:text-violet-500 hover:bg-transparent"
+              className="px-8 py-1  text-lg font-semibold rounded-sm bg-primary/90 text-gray-900 transition-all duration-200  border-2  border-transparent  hover:brightness-75 "
             >
-              Buy Now
+              Browse Products
             </Link>
           </div>
         </div>

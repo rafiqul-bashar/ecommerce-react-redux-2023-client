@@ -36,7 +36,7 @@ export default function Dashboard() {
             }
           />
           <Route
-            path="/profile"
+            path="/my-account"
             element={
               <AdminRoute>
                 <ProfilePage />

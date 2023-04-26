@@ -141,7 +141,7 @@ export default function AddProductPage() {
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-emerald-600 py-1 font-semibold  text-white "
+            className="bg-primary py-1 font-semibold  text-white "
           >
             Add Product
           </button>

@@ -37,12 +37,12 @@ export default function LoginPage() {
   // if (responseError) return <ShowError />;
   return (
     <div>
-      <div className="container md:max-w-3xl mx-auto md:p-24 py-16">
+      <div className="container md:max-w-3xl mx-auto md:p-24 py-12">
         <form
           onSubmit={handleLogin}
-          className="bg-zinc-100 w-full flex flex-col space-y-4 md:p-12 p-6 relative"
+          className="bg-gray-100 w-full flex flex-col space-y-4 md:p-12 p-4 relative"
         >
-          <h2 className="text-center font-bold tracking-wide text-emerald-500 text-3xl ">
+          <h2 className="text-center font-bold tracking-wide text-primary text-3xl ">
             Login
           </h2>{" "}
           <div className="flex flex-col relative"></div>
@@ -83,7 +83,11 @@ export default function LoginPage() {
             type="submit "
             className="font-semibold w-full bg-slate-900 text-white py-2 "
           >
-            Login
+            {isLoading ? (
+              <span className="animate-pulse">waiting to redirect...</span>
+            ) : (
+              "Login"
+            )}
           </button>
           <button
             onClick={() => setDemoLogin(true)}

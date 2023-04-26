@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 export default function CheckOutPage() {
   const { cartItems, cartTotalAmount } = useSelector((state) => state.cart);
+  console.log(cartTotalAmount);
   return (
     <section>
       <h1 className="sr-only">Checkout</h1>

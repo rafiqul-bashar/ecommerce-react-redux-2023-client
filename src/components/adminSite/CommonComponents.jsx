@@ -7,7 +7,7 @@ import { userLoggedOut } from "../../redux/features/auth/authSlice";
 export function AdminHeader() {
   const dispatch = useDispatch();
   return (
-    <div className="flex items-center justify-center py-2 md:py-4 bg-emerald-600 text-white">
+    <div className="flex items-center justify-center py-2 md:py-4 bg-primary text-white">
       <div className="flex items-center justify-between w-full  px-6 md:px-44">
         <div className="flex flex-col md:flex-row items-center ">
           <Link to="/">

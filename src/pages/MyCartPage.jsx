@@ -77,17 +77,17 @@ export default function MyCartPage() {
                         <div className="flex justify-between w-full pb-2 space-x-2">
                           <div className="space-y-1">
                             <h3 className="text-lg font-semibold leading-snug sm:pr-8">
-                              {item.title}
+                              {item?.title}
                             </h3>
                             {/* <p className="text-sm  text-gray-400">Classic</p> */}
                           </div>
                           <div className="flex items-center space-x-8">
                             <p className="text-lg font-semibold">
-                              {item.price}$
+                              {item?.price}$
                             </p>
                             <p className="text-lg font-semibold">X</p>
                             <p className="text-lg font-semibold">
-                              {item.cartQuantity}
+                              {item?.cartQuantity}
                             </p>
                           </div>
                         </div>
@@ -95,12 +95,12 @@ export default function MyCartPage() {
                           <div className="flex items-center space-x-3">
                             <AiOutlineMinus
                               onClick={() => handleQuantityChange(0, item?.id)}
-                              className="h-6 w-6"
+                              className="h-6 w-6 cursor-pointer"
                             />
                             <span className="mx-2 ">{item.cartQuantity}</span>
                             <AiOutlinePlus
                               onClick={() => handleQuantityChange(1, item?.id)}
-                              className="h-6 w-6"
+                              className="h-6 w-6 cursor-pointer"
                             />
                             <div className="flex text-sm divide-x">
                               <button
@@ -130,23 +130,22 @@ export default function MyCartPage() {
               <button
                 onClick={() => dispatch(clearCart())}
                 type="button"
-                className="px-4 py-1 bg-red-400 text-white rounded-sm font-semibold"
+                className="px-4 py-1 bg-red-600/90 text-white rounded-sm font-semibold hover:brightness-90 transition-colors ease-in "
               >
                 Clear Cart
               </button>
             </div>
             <div className="flex justify-end space-x-4">
               <Link to="/products">
-                <h2 className="px-6 py-2 rounded-md my-4 border-primary border-2 bg-primary font-semibold text-slate-800 tracking-wider cursor-pointer border-slate-800 ">
+                <h2 className="px-6 py-2 rounded-sm my-4 border-primary border-2 font-semibold  tracking-wider cursor-pointer bg-zinc-100  text-gray-700 hover:brightness-95 transition-colors ease-in">
                   Return to shop
                 </h2>
               </Link>
 
-              <Link
-                to={user ? "/checkout" : "/login"}
-                className="px-6 py-2 rounded-md my-4 border-primary border-2 bg-primary font-semibold text-white tracking-wider cursor-pointer bg-slate-800 focus:border-white "
-              >
-                Proceed To Payment
+              <Link to={user ? "/checkout" : "/login"}>
+                <h2 className="px-6 py-2 rounded-sm my-4 bg-primary font-semibold  tracking-wider cursor-pointer text-white hover:brightness-95 transition-colors ease-in   ">
+                  Checkout
+                </h2>
               </Link>
             </div>
           </div>
